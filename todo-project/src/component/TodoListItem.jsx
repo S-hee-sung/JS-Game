@@ -16,15 +16,15 @@ const Remove = styled.div`
     display: none;
 `;
 
-const TodoItemBlock = styled.div`
+const TodoItemWrapper = styled.div`
     display: flex;
     align-items: center;
     padding-top: 12px;
     padding-bottom: 12px;
     &:hover {
-        ${Remove} {
-            display: initial;
-        }
+      ${Remove} {
+        display: initial;
+      }
     }
 `;
 
@@ -68,7 +68,7 @@ function TodoListItem({todo, onRemove, onToggle }) {
 
 
   return (  
-    <TodoItemBlock>
+    <TodoItemWrapper>
       <CheckCircle 
         checked={checked} 
         onClick={() => {onToggle(id)}}>
@@ -78,7 +78,7 @@ function TodoListItem({todo, onRemove, onToggle }) {
       <Remove onClick={() => {onRemove(id);}}>
         <MdDelete />
       </Remove>
-    </TodoItemBlock>
+    </TodoItemWrapper>
   );
 }
 

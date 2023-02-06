@@ -67,10 +67,8 @@ function TodoHead({todos}) {
   const weekday = ['일', '월', '화', '수', '목', '금', '토'];
   const dayName = weekday[today.getDay()];
 
-  const [checkList, setCheckList] = useState('');
+  // const [checkList, setCheckList] = useState('');
   
-
-
   // const leftItemEl = document.querySelector('.left-items')
   // const activeTasks = todos.filter(todo => !todo.checked);
 
@@ -80,14 +78,11 @@ function TodoHead({todos}) {
   // };
   // const checkedTasks = todos.filter(todo => !todo.checked);
 
-
+  
   return ( 
     <TodoHeadWrapper>
       <h1>{dateString}</h1>
       <div className="day">{dayName}요일</div>
-      <CheckAll>
-        <MdDone />
-      </CheckAll>
       {/* <Tasks>{checkedTasks.length} left items </Tasks> */}
       <Tasks>left items</Tasks>
     </TodoHeadWrapper>
