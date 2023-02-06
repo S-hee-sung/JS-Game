@@ -81,7 +81,7 @@ function TodoInsert({ onInsert }) {
   const [value, setValue] = useState('');
   const [open, setOpen] = useState(false);
 
-  const onToggle = () => setOpen(!open);
+  const onToggleAdd = () => setOpen(!open);
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -108,7 +108,7 @@ function TodoInsert({ onInsert }) {
           </InsertForm>    
         </TodoInsertWrapper>
       )}
-      <CircleButton onClick={onToggle} open={open}>
+      <CircleButton onClick={onToggleAdd} open={open}>
         <MdAdd />
       </CircleButton>
     </>

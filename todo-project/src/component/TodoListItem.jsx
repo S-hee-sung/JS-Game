@@ -59,12 +59,14 @@ const Text = styled.div`
         `}
 `;
 
-function TodoListItem({todo, onRemove }) {
+function TodoListItem({todo, onRemove, onToggle }) {
   const { id, text, checked } = todo;
 
   return (  
     <TodoItemBlock>
-      <CheckCircle checked={checked}>{checked && <MdDone />}</CheckCircle>
+      <CheckCircle checked={checked} onClick={() => {onToggle(id)}}>
+        {checked && <MdDone />}
+      </CheckCircle>
       <Text checked={checked}>{text}</Text>
       <Remove onClick={() => {onRemove(id);}}>
         <MdDelete />

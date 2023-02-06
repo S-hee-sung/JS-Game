@@ -19,21 +19,21 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: '수업 교안 작성하기',
-      checked: true
-    },
-    {
-      id: 2,
-      text: '시험 채점하기',
-      checked: true
-    },
-    {
-      id: 3,
-      text: '단계별 실습 예제 만들기',
-      checked: false
-    }
+    // {
+    //   id: 1,
+    //   text: '수업 교안 작성하기',
+    //   checked: true
+    // },
+    // {
+    //   id: 2,
+    //   text: '시험 채점하기',
+    //   checked: true
+    // },
+    // {
+    //   id: 3,
+    //   text: '단계별 실습 예제 만들기',
+    //   checked: false
+    // }
   ]);
 
   const nextId = useRef(4);
@@ -44,6 +44,7 @@ function App() {
       text,
       checked: false
     };
+
     setTodos(todos.concat(todo)); 
 
     nextId.current += 1; 
@@ -54,13 +55,19 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   } ,[todos])
 
+  const handleToggle = useCallback((id) => {
+    setTodos(todos.map((todo) => 
+      todo.id === id ? { ...todo, checked: !todo.checked } : todo
+  ));
+  },[todos]);
+
   return (
     <>
       <GlobalStyle />
       <TodoTemplate>
         <TodoHead />
-        <TodoList todos={todos} />
-        <TodoInsert onInsert={handleInsert} onRemove={handleRemove}/>
+        <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} />
+        <TodoInsert onInsert={handleInsert} />
       </TodoTemplate>
     </>  
   );

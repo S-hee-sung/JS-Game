@@ -16,20 +16,39 @@ const TodoHeadBlock = styled.div`
     margin-top: 40px;
     font-weight: bold;
   }
-  .tasks {
+  `;
+  const Tasks = styled.div`
     color: #20c997;
     font-size: 18px;
     margin-top: 40px;
     font-weight: bold;
-  }
-`;
+  `;
+  
 
-function TodoHead() {
+
+function TodoHead({todos}) {
+  const today = new Date();
+
+  const dateString = today.toLocaleString('ko-KR', {
+    year: 'numeric',
+    month: 'long',
+    day: '2-digit'
+  });
+
+
+  // const dayName = today.toLocaleString('ko-KR', { weekday: 'long' });
+  const weekday = ['일', '월', '화', '수', '목', '금', '토'];
+  const dayName = weekday[today.getDay()];
+
+
+  const headToday = today.toLocaleString();
+  // const undoneTasks = todos.filter(todo => !todo.checked);
+
   return ( 
     <TodoHeadBlock>
-      <h1>2023년 2월 00일</h1>
-      <div className="day">0요일</div>
-      <div className="tasks">할 일 0개 남음</div>
+      <h1>{dateString}</h1>
+      <div className="day">{dayName}요일</div>
+      {/* <Tasks>할 일 {undoneTasks.lenth}개 남음</Tasks> */}
     </TodoHeadBlock>
   );
 }
