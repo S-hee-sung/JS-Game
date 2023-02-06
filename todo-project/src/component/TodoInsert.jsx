@@ -100,11 +100,12 @@ function TodoInsert({ onInsert }) {
       {open && (
         <TodoInsertWrapper>
           <InsertForm  onSubmit={handleSubmit}>
-            <StyledInput 
+            <StyledInput
+              autoFocus
               value={value}
               onChange={handleChange}
               placeholder="할 일을 입력 후, Enter 를 누르세요"
-            />    
+            />
           </InsertForm>    
         </TodoInsertWrapper>
       )}

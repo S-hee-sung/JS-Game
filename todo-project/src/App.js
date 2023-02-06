@@ -19,21 +19,21 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   const [todos, setTodos] = useState([
-    // {
-    //   id: 1,
-    //   text: '수업 교안 작성하기',
-    //   checked: true
-    // },
-    // {
-    //   id: 2,
-    //   text: '시험 채점하기',
-    //   checked: true
-    // },
-    // {
-    //   id: 3,
-    //   text: '단계별 실습 예제 만들기',
-    //   checked: false
-    // }
+    {
+      id: 1,
+      text: '리액트 공부하기',
+      checked: true
+    },
+    {
+      id: 2,
+      text: '리액트 게임 만들기',
+      checked: true
+    },
+    {
+      id: 3,
+      text: '리액트 접기?',
+      checked: false
+    }
   ]);
 
   const nextId = useRef(4);

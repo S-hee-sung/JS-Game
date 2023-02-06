@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { MdDone, MdDelete } from 'react-icons/md';
+import { useState } from "react";
 
 const Remove = styled.div`
     display: flex;
@@ -56,15 +57,21 @@ const Text = styled.div`
         props.checked &&
         css`
             color: #ced4da;
+            /* color: #38d9a9; */
+            text-decoration: line-through;
         `}
 `;
+
 
 function TodoListItem({todo, onRemove, onToggle }) {
   const { id, text, checked } = todo;
 
+
   return (  
     <TodoItemBlock>
-      <CheckCircle checked={checked} onClick={() => {onToggle(id)}}>
+      <CheckCircle 
+        checked={checked} 
+        onClick={() => {onToggle(id)}}>
         {checked && <MdDone />}
       </CheckCircle>
       <Text checked={checked}>{text}</Text>
