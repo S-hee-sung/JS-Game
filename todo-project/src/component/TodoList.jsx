@@ -38,8 +38,8 @@ function TodoList({ todos, onRemove, onToggle, onChangeSelectedTodo, onInsertTog
               todo={todo}
               onRemove={onRemove}
               onToggle={onToggle}
-              onInsertToggle={onInsertToggle}
-              onChangeSelectedTodo={onChangeSelectedTodo}
+              // onInsertToggle={onInsertToggle}
+              // onChangeSelectedTodo={onChangeSelectedTodo}
             />
           );
         })}
