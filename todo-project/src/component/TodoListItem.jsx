@@ -13,7 +13,6 @@ const Remove = styled.div`
   &:hover {
       color: #ff6b6b;
   }
-  /* display: none; */
 `;
 
 const TodoItemWrapper = styled.div`
@@ -21,11 +20,6 @@ const TodoItemWrapper = styled.div`
   align-items: center;
   padding-top: 12px;
   padding-bottom: 12px;
-  /* &:hover {
-    ${Remove} {
-      display: initial;
-    }
-  } */
 `;
 
 const CheckCircle = styled.div`
@@ -41,11 +35,16 @@ const CheckCircle = styled.div`
   cursor: pointer;
     
   ${props =>
-      props.checked &&
-      css`
-          border: 1px solid #38d9a9;
-          color: #38d9a9;
-      `}
+    props.checked &&
+    css`
+      border: 1px solid #9c88ff;
+      color: #9c88ff;
+  `}
+
+  &:hover {
+    /* background: #63e6be; */
+    background: #ede2f0;
+  }      
 `;
 
 const Text = styled.div`
@@ -54,23 +53,24 @@ const Text = styled.div`
   color: #000;
   
   ${props =>
-      props.checked &&
-      css`
-          color: #00000073;
-          /* color: #38d9a9; */
-          text-decoration: line-through;
-      `}
+    props.checked &&
+    css`
+      color: #00000073;
+      /* color: #38d9a9; */
+      text-decoration: line-through;
+  `}
 `;
 
-const editWrapper = styled.div`
+const EditWrapper = styled.div`
   display: flex;
   align-items: center;
   font-size: 1.5rem;
   cursor: pointer;
   margin-right: 1rem;
+  color: #dee2e6;
 
   &:hover {
-        color: #ff6b6b;
+        color: #9c88ff;
     }
   `; 
 
@@ -91,14 +91,14 @@ function TodoListItem({todo, onRemove, onToggle, onChangeSelectedTodo,onInsertTo
       <Remove onClick={() => {onRemove(id);}}>
         <MdDelete />
       </Remove>
-      <editWrapper
+      <EditWrapper
         onClick={() => {
           onChangeSelectedTodo(todo);
           onInsertToggle();
         }}
       >
         <MdModeEditOutline />
-      </editWrapper>
+      </EditWrapper>
     </TodoItemWrapper>
   );
 }

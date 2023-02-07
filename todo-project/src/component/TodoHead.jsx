@@ -12,10 +12,10 @@ const TodoHeadWrapper = styled.div`
     margin: 0px;
     font-size: 36px;
     font-weight: 700;
-    color: #343a40;
+    color: #9c88ff;
   }
   .day {
-    color: #20c997;
+    color: #9c88ff;
     font-size: 18px;
     margin-top: 40px;
     font-weight: bold;
@@ -23,7 +23,7 @@ const TodoHeadWrapper = styled.div`
 `;
 
 const Tasks = styled.div`
-  color: #20c997;
+  color: #9c88ff;
   font-size: 18px;
   /* margin-top: 20px; */
   font-weight: bold;
@@ -31,26 +31,26 @@ const Tasks = styled.div`
 `;
   
 
-const CheckAll = styled.div`
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
-  border: 1px solid #ced4da;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 20px;
-  margin-top: 30px;
-  cursor: pointer;
+// const CheckAll = styled.div`
+//   width: 32px;
+//   height: 32px;
+//   border-radius: 16px;
+//   border: 1px solid #ced4da;
+//   font-size: 24px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-right: 20px;
+//   margin-top: 30px;
+//   cursor: pointer;
   
-  ${props =>
-    props.checked &&
-    css`
-      border: 1px solid #38d9a9;
-      color: #38d9a9;
-    `}
-`;
+//   ${props =>
+//     props.checked &&
+//     css`
+//       border: 1px solid #9c88ff;
+//       color: #9c88ff;
+//     `}
+// `;
 
 
 
