@@ -22,6 +22,7 @@ const TodoItemWrapper = styled.div`
   padding-bottom: 12px;
 `;
 
+
 const CheckCircle = styled.div`
   width: 32px;
   height: 32px;
@@ -75,12 +76,12 @@ const EditWrapper = styled.div`
   `; 
 
 
-function TodoListItem({todo, onRemove, onToggle, onChangeSelectedTodo,onInsertToggle, }) {
+function TodoListItem({todo, onRemove, onToggle, onChangeSelectedTodo,onInsertToggle }) {
   
   const { id, text, checked } = todo;
 
 
-  return (  
+  return ( 
     <TodoItemWrapper>
       <CheckCircle
         checked={checked} 

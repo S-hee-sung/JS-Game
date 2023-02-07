@@ -8,22 +8,43 @@ const TodoListWrapper = styled.div`
 `;
 
 function TodoList({ todos, onRemove, onToggle, onChangeSelectedTodo, onInsertToggle}) {
-  return (  
-    <TodoListWrapper>
-      {todos.map((todo) =>{
-        return(
-          <TodoListItem 
-            key={todo.id} 
-            todo={todo}
-            onRemove={onRemove}
-            onToggle={onToggle}
-            onInsertToggle={onInsertToggle}
-            onChangeSelectedTodo={onChangeSelectedTodo}
-          />
-        );
-        
-      })}
-    </TodoListWrapper>
+
+  return (
+    <>
+      <TodoListWrapper>
+        <h1>할 일 목록</h1>
+        {todos.map((todo) =>{
+          if (todo.checked == true) return null;
+          return(
+            <TodoListItem 
+              key={todo.id} 
+              todo={todo}
+              onRemove={onRemove}
+              onToggle={onToggle}
+              onInsertToggle={onInsertToggle}
+              onChangeSelectedTodo={onChangeSelectedTodo}
+            />
+          );
+        })}
+      </TodoListWrapper>
+
+      <TodoListWrapper>
+        <h1>완료된 목록</h1>
+        {todos.map((todo) =>{
+          if (todo.checked == false) return ;
+          return(
+            <TodoListItem 
+              key={todo.id} 
+              todo={todo}
+              onRemove={onRemove}
+              onToggle={onToggle}
+              onInsertToggle={onInsertToggle}
+              onChangeSelectedTodo={onChangeSelectedTodo}
+            />
+          );
+        })}
+      </TodoListWrapper>
+    </>
   );
 }
 

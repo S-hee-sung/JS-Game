@@ -36,8 +36,9 @@ function App() {
       checked: false
     }
   ]);
+  const [selectedTodo, setSelectedTodo] = useState(null);
+  const [insertToggle, setInsertToggle] = useState(false);
 
-  const nextId = useRef(4);
 
   const handleInsert = useCallback((text) => {
     const todo = {
@@ -47,9 +48,6 @@ function App() {
     };
 
     setTodos(todos.concat(todo)); 
-
-    nextId.current += 1; 
-  
   },[todos]);
 
   const handleRemove = useCallback((id) => {
@@ -62,9 +60,6 @@ function App() {
   ));
   },[todos]); 
 
-  const [selectedTodo, setSelectedTodo] = useState(null);
-  const [insertToggle, setInsertToggle] = useState(false);
-  
   const onInsertToggle = useCallback(() => {
     if (selectedTodo) {
       setSelectedTodo((selectedTodo) => null);
@@ -75,7 +70,6 @@ function App() {
   const onChangeSelectedTodo = (todo) => {
     setSelectedTodo((selectedTodo) => todo);
   };
-
 
   const handleUpdate = useCallback((id, text) => {
     onInsertToggle();
@@ -99,11 +93,11 @@ function App() {
         />
         {insertToggle && (
           <TodoEdit
-          onInsert={handleInsert}
-          selectedTodo={selectedTodo}
-          onInsertToggle={onInsertToggle}
-          handleUpdate={handleUpdate}
-          insertToggle={insertToggle}
+            onInsert={handleInsert}
+            selectedTodo={selectedTodo}
+            onInsertToggle={onInsertToggle}
+            handleUpdate={handleUpdate}
+            insertToggle={insertToggle}
           />
         )}
         <TodoInsert onInsert={handleInsert} />
