@@ -65,7 +65,7 @@ function App() {
     <>
       <GlobalStyle />
       <TodoTemplate>
-        <TodoHead />
+        <TodoHead todos={todos} />
         <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} />
         <TodoInsert onInsert={handleInsert} />
       </TodoTemplate>

@@ -69,7 +69,7 @@ function TodoListItem({todo, onRemove, onToggle }) {
 
   return (  
     <TodoItemWrapper>
-      <CheckCircle 
+      <CheckCircle
         checked={checked} 
         onClick={() => {onToggle(id)}}>
         {checked && <MdDone />}

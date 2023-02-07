@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { MdDone } from 'react-icons/md';
+import { MdDone, MdLogin } from 'react-icons/md';
 import { useState } from "react";
 
 
@@ -67,24 +67,13 @@ function TodoHead({todos}) {
   const weekday = ['일', '월', '화', '수', '목', '금', '토'];
   const dayName = weekday[today.getDay()];
 
-  // const [checkList, setCheckList] = useState('');
-  
-  // const leftItemEl = document.querySelector('.left-items')
-  // const activeTasks = todos.filter(todo => !todo.checked);
-
-  // const setLeftItems = () => {
-  //   const leftTodos = activeTasks();
-  //   leftItemEl.innerHTML = `${leftTodos.length} items left`;
-  // };
-  // const checkedTasks = todos.filter(todo => !todo.checked);
-
+  const checkedTasks = todos.filter(todo => !todo.checked);
   
   return ( 
     <TodoHeadWrapper>
       <h1>{dateString}</h1>
       <div className="day">{dayName}요일</div>
-      {/* <Tasks>{checkedTasks.length} left items </Tasks> */}
-      <Tasks>left items</Tasks>
+      <Tasks>{checkedTasks.length} left items</Tasks>
     </TodoHeadWrapper>
   );
 }
