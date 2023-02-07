@@ -4,7 +4,7 @@ const TodoTempalateBlock = styled.div`
   width: 512px;
   height: 768px;
 
-  background: white;
+  background: #ccc;
   border-radius: 16px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.04);
 

@@ -7,7 +7,7 @@ const TodoListWrapper = styled.div`
   padding-bottom: 48px;
 `;
 
-function TodoList({ todos, onRemove, onToggle}) {
+function TodoList({ todos, onRemove, onToggle, onChangeSelectedTodo, onInsertToggle}) {
   return (  
     <TodoListWrapper>
       {todos.map((todo) =>{
@@ -17,8 +17,11 @@ function TodoList({ todos, onRemove, onToggle}) {
             todo={todo}
             onRemove={onRemove}
             onToggle={onToggle}
+            onInsertToggle={onInsertToggle}
+            onChangeSelectedTodo={onChangeSelectedTodo}
           />
         );
+        
       })}
     </TodoListWrapper>
   );

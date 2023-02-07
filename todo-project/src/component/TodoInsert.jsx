@@ -89,9 +89,8 @@ function TodoInsert({ onInsert }) {
 
   const handleSubmit = (e) => {
     onInsert(value);
-    setValue(''); // value 값 초기화
-
-    // submit 이벤트가 발생시키는 새로고침을 방지!!!!
+    setValue(''); 
+    
     e.preventDefault();
   };
 

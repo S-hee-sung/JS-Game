@@ -6,6 +6,7 @@ import TodoTemplate from "./component/TodoTemplate";
 import { reset } from "styled-reset";
 import TodoHead from "./component/TodoHead";
 import { v4 as uuidv4 } from "uuid";
+import TodoEdit from "./component/TodoEdit";
 
 
 
@@ -59,14 +60,52 @@ function App() {
     setTodos(todos.map((todo) => 
       todo.id === id ? { ...todo, checked: !todo.checked } : todo
   ));
-  },[todos]);
+  },[todos]); 
+
+  const [selectedTodo, setSelectedTodo] = useState(null);
+  const [insertToggle, setInsertToggle] = useState(false);
+  
+  const onInsertToggle = useCallback(() => {
+    if (selectedTodo) {
+      setSelectedTodo((selectedTodo) => null);
+    }
+    setInsertToggle((prev) => !prev);
+  }, [selectedTodo]);
+
+  const onChangeSelectedTodo = (todo) => {
+    setSelectedTodo((selectedTodo) => todo);
+  };
+
+
+  const handleUpdate = useCallback((id, text) => {
+    onInsertToggle();
+
+    setTodos((todos) => todos.map((todo) =>
+      (todo.id === id ? { ...todo, text } : todo)),
+    );
+  },[onInsertToggle]);
 
   return (
     <>
       <GlobalStyle />
       <TodoTemplate>
         <TodoHead todos={todos} />
-        <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} />
+        <TodoList 
+          todos={todos} 
+          onRemove={handleRemove} 
+          onToggle={handleToggle}
+          onChangeSelectedTodo={onChangeSelectedTodo}
+          onInsertToggle={onInsertToggle}
+        />
+        {insertToggle && (
+          <TodoEdit
+          onInsert={handleInsert}
+          selectedTodo={selectedTodo}
+          onInsertToggle={onInsertToggle}
+          handleUpdate={handleUpdate}
+          insertToggle={insertToggle}
+          />
+        )}
         <TodoInsert onInsert={handleInsert} />
       </TodoTemplate>
     </>  
