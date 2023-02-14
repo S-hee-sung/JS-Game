@@ -1,5 +1,5 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 function Header(props) {
   const navigate = useNavigate();
@@ -20,6 +20,8 @@ function Header(props) {
           </Container>
         </Navbar>
       </header>
+
+      <Outlet />
     </>
   );
 }

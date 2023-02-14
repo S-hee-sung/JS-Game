@@ -19,7 +19,7 @@ function Main(props) {
       <section>
         <MainBackground />
       </section>
-      {/* <section>
+      <section>
         <Container>
           <Row>
             <Col md={4}>
@@ -39,7 +39,7 @@ function Main(props) {
             </Col>
           </Row>
         </Container>
-      </section> */}
+      </section>
     </>
   );
 }
